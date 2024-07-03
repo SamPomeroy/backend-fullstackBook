@@ -14,13 +14,13 @@ router.get('/', (req, res)=>{
 
 //undefined check
 //empty
-router.post('/sign-up',
+router.post('/signup',
  checkIsUndefinedFunc,
  checkIsEmptyFunc,
  authMiddlewareFunc,
  signUp)
 
- router.post('/sign-in',
+ router.post('/login',
  checkIsUndefinedFunc,
  checkIsEmptyFunc,
  signin)

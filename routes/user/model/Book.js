@@ -10,6 +10,14 @@ const bookSchema = new mongoose.Schema({
         required: true
     },
     pageCount: {
+        type: Number,
+        required: true
+    },
+    publisher: {
+        type: String,
+        required: true
+    },
+    deescription: {
         type: String,
         required: true
     },
@@ -17,10 +25,6 @@ const bookSchema = new mongoose.Schema({
         type: String,
         required: true
     }, 
-    publisher: {
-        type: String,
-        required: true
-    },
     image: {
         type: String,
         required: true
@@ -41,11 +45,6 @@ const bookSchema = new mongoose.Schema({
     infoLink: {
         type: String,
         required: true
-    },
-    ISBN: {
-        type: String,
-        required: true,
-        unique: true
     },
     viewability: {
         type: String,

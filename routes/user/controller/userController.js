@@ -33,14 +33,14 @@ async function signUp(req, res, next){
         }
 
 async function signin(req, res, next){
-    const {email, password} = req.body
+    const {username, password} = req.body
     const {errorObj} = res.locals
 
     if(Object.keys(errorObj).length >0){
         return res.status(500).json({message: 'failure', payload: errorObj})
     }
     try {
-        const foundUser = await User.findOne({email: email})
+        const foundUser = await User.findOne({username})
         if(!foundUser){
             return res.status(400).json({message: 'failed. please check username or password'})
         }else{
@@ -205,10 +205,6 @@ async function getUserInfo(req, res){
         .populate({
             path: 'favorites',
             model: "Book"
-        })
-        .populate({
-            path: 'saved',
-            model: 'Book'
         })
         if(!user){
             res.status(400).json({message: 'user not found'})
